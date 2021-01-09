@@ -12,7 +12,11 @@ class VendaController{
 	public function index()
 	{
 		# code...
-		View::load('vendasAll');
+        $vendasall = Vendas::selectAll(); 
+        View::load('vendasAll', [ 
+            'vendas' => $vendasall,
+        ]);
+		
 	}
 
 	public function cadastro()

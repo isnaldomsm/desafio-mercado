@@ -11,6 +11,7 @@
    <hr>
    <div>
    </div>
+   <?php var_dump($vendas);?>
    <!--/.col-sm-12-->
    <table class="table table-striped table-bordered">
             <thead>
