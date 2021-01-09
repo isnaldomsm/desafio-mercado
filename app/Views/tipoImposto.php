@@ -16,25 +16,25 @@
             <thead>
                <tr class="bg-primary text-white">
                   <th>#Id</th>
-                  <th>Nome Produto</th>
-                  <th>Preço</th>
+                  <th>Nome Tipo</th>
+                  <th>Porcentagem de Imposto</th>
                   <th>Descricão</th>
-                  <th class="text-center">Categoria</th>
+                  
                   <th class="text-center" scope="col">Ações</th>
                   
                </tr>
             </thead>
             <tbody>
-            <?php foreach ($produtos as $produto): ?>
+            <?php foreach ($tipoimposto as $tipoimpostos): ?>
             <tr>
-                  <td><?php echo $produto['id']; ?></td>
-                  <td><?php echo $produto['nomeproduto']; ?></td>
-                  <td><?php echo $produto['precoproduto']; ?></td>
-                  <td><?php echo $produto['descricaoproduto']; ?></td>
-                  <td align="center"><?php echo $produto['tipocategoria']; ?></td>
+                  <td><?php echo $tipoimpostos['id']; ?></td>
+                  <td><?php echo $tipoimpostos['nometipo'];?></td>
+                  <td><?php echo $tipoimpostos['porcentagemimposto'];?>%</td>
+                  <td><?php echo $tipoimpostos['descricaotipo']; ?></td>
+                  
                   <td align="center">
-                     <a href="produto/edit/<?php echo $produto['id']; ?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
-                     <a href="produto/remove/<?php echo $produto['id']; ?>" class="text-danger" onclick="return confirm('Você vai excluir o produto: <?php echo $produto['nomeproduto'].".";?> Certeza?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                     <a href="tipoprodutoimposto/edit/<?php echo $tipoimpostos['id']; ?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
+                     <a href="tipoprodutoimposto/remove/<?php echo $tipoimpostos['id']; ?>" class="text-danger" onclick="return confirm('Você vai excluir o tipo/imposto: <?php echo $tipoimpostos['nometipo'].".";?> Certeza?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
                   </td>
 
                </tr>

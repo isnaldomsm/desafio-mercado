@@ -58,6 +58,13 @@ $app->get('/produto/edit/{id}', function ($request)
     $ProdutosController = new \App\Controllers\ProdutosController;
     $ProdutosController->edit($id);
 });
+//update produto
+$app->post('produto/edit', function ()
+{
+    $UsersController = new \App\Controllers\UsersController;
+    $UsersController->update();
+});
+
 
 //
 $app->get('/tipoprodutoimposto', function ()
@@ -81,5 +88,32 @@ $app->post('/tipoprodutoimposto/add', function ()
     $tipoProdutoImpostoController->add();
 });
 
+// remove um tipo/imposto
+$app->get('/tipoprodutoimposto/remove/{id}', function ($request)
+{
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+ 
+    $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
+    $tipoProdutoImpostoController->remove($id);
+});
+
+// edição de tipo/imposto
+// exibe o formulário de edição
+$app->get('/tipoprodutoimposto/edit/{id}', function ($request)
+{
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+ 
+    $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
+    $tipoProdutoImpostoController->edit($id);
+});
+
+//update produto
+$app->post('tipoprodutoimposto/edit', function ()
+{
+    $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
+    $tipoProdutoImpostoController->update();
+});
  
 $app->run();

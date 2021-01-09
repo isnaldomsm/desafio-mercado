@@ -10,14 +10,20 @@
 				<div class="col-sm-6">
 
 					<h5 class="card-title">Campos com <span class="text-danger">*</span> são obrigatorios!</h5>
-
+					<?php 
+						if(tipoimposto['id']){
+							echo '<form method="post" action="/tipoprodutoimposto/add">';
+						}else{
+							echo '<form method="post" action="/tipoprodutoimposto/add">';
+						}
+					?>
 					<form method="post" action="/tipoprodutoimposto/add">
-
+						<input type="hidden" name="id" value="<?=$user['id']?>">
 						<div class="form-group">
 
 							<label>Nome do Tipo<span class="text-danger">*</span></label>
 
-							<input type="text" name="nometipo" id="produtoNome" class="form-control" placeholder="Nome do Produto" value="<?php echo $produtos['nomeproduto'];?>" required>
+							<input type="text" name="nometipo" id="produtoNome" class="form-control" placeholder="Nome do Produto" value="<?php echo $tipoimposto['nometipo'];?>" required>
 
 						</div>
 
@@ -25,14 +31,14 @@
 
 							<label>Porcentagem de Imposto <span class="text-danger">(%)</span></label>
 
-							<input type="number" step="0.01" name="porcentagem" id="precoProduto" class="form-control" placeholder="Preço do Produto" value="<?php echo $produtos['precoproduto'];?>" required>
+							<input type="number" step="0.01" name="porcentagem" id="precoProduto" class="form-control" placeholder="Porcentagem do tipo" value="<?php echo $tipoimposto['porcentagemimposto'];?>" required>
 
 						</div>
 
 						<div class="form-group">
 
 							<label>Descrição do Tipo<span class="text-danger">*</span></label>
-							<textarea name="descricaotipo" class="form-control" required="true"><?php echo $produtos['descricaoproduto'];?>ddd</textarea>
+							<textarea name="descricaotipo" class="form-control" required="true"><?php echo $tipoimposto['descricaotipo'];?></textarea>
 
 						</div>
 						
