@@ -11,13 +11,13 @@
 
 					<h5 class="card-title">Campos com <span class="text-danger">*</span> são obrigatorios!</h5>
 
-					<form method="post">
+					<form method="post" action="/produto/add">
 
 						<div class="form-group">
 
 							<label>Nome do produto <span class="text-danger">*</span></label>
 
-							<input type="text" name="username" id="username" class="form-control" placeholder="Enter user name" required>
+							<input type="text" name="produtoNome" id="produtoNome" class="form-control" placeholder="Nome do Produto" value="<?php echo $produtos['nomeproduto'];?>" required>
 
 						</div>
 
@@ -25,26 +25,26 @@
 
 							<label>Preço do produto <span class="text-danger">*</span></label>
 
-							<input type="email" name="useremail" id="useremail" class="form-control" placeholder="Enter user email" required>
+							<input type="number" step="0.01" name="precoProduto" id="precoProduto" class="form-control" placeholder="Preço do Produto" value="<?php echo $produtos['precoproduto'];?>" required>
 
 						</div>
 
 						<div class="form-group">
 
 							<label>Descrição do produto <span class="text-danger">*</span></label>
-
-							<input type="tel" pattern=".{14,14}" title="Accept US Number format (888) 888-8888" class="tel form-control" name="userphone" id="userphone" x-autocompletetype="tel" placeholder="Enter user phone" required>
+							<textarea name="descricaoProduto" value="" class="form-control" required="true"><?php echo $produtos['descricaoproduto']; ?>
+							</textarea>
 
 						</div>
 						<div class="form-group">
 
 							<label>Tipo/categoria <span class="text-danger">*</span></label>
 
-							<select class="form-control">
-								<option>
+							<select name="tipoCategoria" class="form-control">
+								<option name="tipoCategoria" value="01">
 									Sustentavel
 								</option>
-								<option>
+								<option name="tipoCategoria" value="01">
 									Reciclavel
 								</option>
 							</select>
@@ -69,31 +69,6 @@
 
     
 
-	<div class="container my-4">
-
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-		<!-- demo left sidebar -->
-
-		<ins class="adsbygoogle"
-
-			 style="display:block"
-
-			 data-ad-client="ca-pub-6724419004010752"
-
-			 data-ad-slot="7706376079"
-
-			 data-ad-format="auto"
-
-			 data-full-width-responsive="true"></ins>
-
-		<script>
-
-		(adsbygoogle = window.adsbygoogle || []).push({});
-
-		</script>
-
-	</div>
 
 	
 
