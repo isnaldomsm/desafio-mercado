@@ -98,8 +98,7 @@ $app->get('/tipoprodutoimposto/remove/{id}', function ($request)
     $tipoProdutoImpostoController->remove($id);
 });
 
-// edição de tipo/imposto
-// exibe o formulário de edição
+//update produto
 $app->get('/tipoprodutoimposto/edit/{id}', function ($request)
 {
     // pega o ID da URL
@@ -109,11 +108,11 @@ $app->get('/tipoprodutoimposto/edit/{id}', function ($request)
     $tipoProdutoImpostoController->edit($id);
 });
 
-//update produto
-$app->post('tipoprodutoimposto/edit', function ()
+// edição de tipo/imposto
+// exibe o formulário de edição
+$app->post('/tipoprodutoimposto/edit', function ($request)
 {
     $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
     $tipoProdutoImpostoController->update();
 });
- 
 $app->run();

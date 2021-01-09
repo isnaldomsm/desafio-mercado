@@ -10,15 +10,9 @@
 				<div class="col-sm-6">
 
 					<h5 class="card-title">Campos com <span class="text-danger">*</span> são obrigatorios!</h5>
-					<?php 
-						if(tipoimposto['id']){
-							echo '<form method="post" action="/tipoprodutoimposto/add">';
-						}else{
-							echo '<form method="post" action="/tipoprodutoimposto/add">';
-						}
-					?>
-					<form method="post" action="/tipoprodutoimposto/add">
-						<input type="hidden" name="id" value="<?=$user['id']?>">
+						<form method="post" action="/tipoprodutoimposto/add">
+					
+						
 						<div class="form-group">
 
 							<label>Nome do Tipo<span class="text-danger">*</span></label>

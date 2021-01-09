@@ -82,6 +82,40 @@ class tipoimposto{
             return false;
         }
     }
+    /**
+     * Altera no banco de dados um usuário
+     */
+    public static function update($id, $nometipo, $porcentagem, $descricaotipo)
+    {
+        // validação (bem simples, só pra evitar dados vazios)
+        if ( empty($nometipo) || empty($porcentagem) || empty($descricaotipo) )
+        {
+            echo "Volte e preencha todos os campos";
+            return false;
+        }
+       
+          
+        // insere no banco
+        $DB = new DB;
+        $sql = "UPDATE tipoimposto SET nometipo = :nometipo, porcentagemimposto = :porcentagemimposto, descricaotipo = :descricaotipo WHERE id = :id";
+        $stmt = $DB->prepare($sql);
+        echo $sql;
+        $stmt->bindParam(':nometipo', $nometipo);
+        $stmt->bindParam(':porcentagemimposto', $porcentagem);
+        $stmt->bindParam(':descricaotipo', $descricaotipo);
+        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
+ 
+        if ($stmt->execute())
+        {
+            return true;
+        }
+        else
+        {
+            echo "Erro ao cadastrar";
+            print_r($stmt->errorInfo());
+            return false;
+        }
+    }
 
 
 }

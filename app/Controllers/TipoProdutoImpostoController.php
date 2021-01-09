@@ -54,7 +54,7 @@ class tipoProdutoImpostoController
     {
         $tipoimposto = TipoImposto::selectAll($id)[0];
  
-        View::load('tipoImpostoCadastro',[
+        View::load('tipoImpostoUpdate',[
             'tipoimposto' => $tipoimposto,
         ]);
     }
@@ -63,14 +63,14 @@ class tipoProdutoImpostoController
     {
         // pega os dados do formuário
         $id = $_POST['id'];
-        $name = isset($_POST['name']) ? $_POST['name'] : null;
-        $email = isset($_POST['email']) ? $_POST['email'] : null;
-        $gender = isset($_POST['gender']) ? $_POST['gender'] : null;
-        $birthdate = isset($_POST['birthdate']) ? $_POST['birthdate'] : null;
+        $nometipo           = isset($_POST['nometipo']) ? $_POST['nometipo'] : null;
+        $porcentagem        = isset($_POST['porcentagem']) ? $_POST['porcentagem'] : null;
+        $descricaotipo      = isset($_POST['descricaotipo']) ? $_POST['descricaotipo'] : null;
+       
  
-        if (User::update($id, $name, $email, $gender, $birthdate))
+        if (TipoImposto::update($id, $nometipo, $porcentagem, $descricaotipo))
         {
-            header('Location: /');
+            header('Location: /tipoprodutoimposto');
             exit;
         }
     }
