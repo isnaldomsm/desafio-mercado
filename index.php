@@ -38,7 +38,7 @@ $app->post('/produto/add', function ()
     $ProdutoController->add();
 });
 
-// remove um usuário
+// remove um produto
 $app->get('/produto/remove/{id}', function ($request)
 {
     // pega o ID da URL
@@ -59,6 +59,27 @@ $app->get('/produto/edit/{id}', function ($request)
     $ProdutosController->edit($id);
 });
 
+//
+$app->get('/tipoprodutoimposto', function ()
+{
+    # code...
+    $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
+    $tipoProdutoImpostoController->index();
+});
+
+$app->get('/tipoprodutoimposto/cadastro', function ()
+{
+    # code...
+    $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
+    $tipoProdutoImpostoController->create();
+});
+
+$app->post('/tipoprodutoimposto/add', function ()
+{
+    # code...
+    $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
+    $tipoProdutoImpostoController->add();
+});
 
  
 $app->run();

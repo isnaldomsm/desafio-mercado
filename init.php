@@ -3,7 +3,7 @@
 define('BASE_PATH', dirname(__FILE__));
  
 // credenciais de acesso ao PG
-define('PG_HOST', 'motty.db.elephantsql.com ');
+define('PG_HOST', 'motty.db.elephantsql.com');
 define('PG_USER', 'bqnsxabp');
 define('PG_PASS', '1JWtBfrKzqO99eSjnzF5NeH7qiq9BMLR');
 define('PG_DBNAME', 'bqnsxabp');

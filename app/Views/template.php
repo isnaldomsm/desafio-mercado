@@ -35,15 +35,9 @@
                         </a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/tipoprodutoimposto">
                         <span data-feather="shopping-cart"></span>
-                        Tipo produto
-                        </a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                        <span data-feather="users"></span>
-                        Imposto
+                        Tipo produto / Imposto
                         </a>
                      </li>
                      <li class="nav-item">
