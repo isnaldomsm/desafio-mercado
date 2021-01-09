@@ -127,4 +127,9 @@ $app->get('/vendas/cadastro', function ($request)
     $VendaController = new \App\Controllers\VendaController;
     $VendaController->cadastro();
 });
+$app->post('/vendas/add', function ($request)
+{
+    $VendaController = new \App\Controllers\VendaController;
+    $VendaController->add();
+});
 $app->run();

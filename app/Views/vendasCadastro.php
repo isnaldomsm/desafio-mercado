@@ -8,22 +8,23 @@
 
 					<h5 class="card-title">Apenas produtos com quantidade em estoque disponivel vão ser <span class="text-danger">listados! </span>abaixo para venda.</h5>
 
-					<form method="post" action="/produto/add">
+					
 
 						<?php  
 							foreach ($produtovenda as $produtovendas): 
 								if($produtovendas['quantidadeproduto']>0):
 						?>
+						<form method="post" action="/vendas/add">
 						<div class="form-group" style="margin-top: 5px;!important">
-							<select name="tipoCategoria" disabled style="float: left;" class="form-control col-sm-6">
-								<option name="tipoCategoria" value="01">
+							<select name="produtoid" disabled style="float: left;" class="form-control col-sm-6">
+								<option name="tipoCategoria" value="<?php echo $produtovendas['id'];?>">
 									<?php echo $produtovendas['nomeproduto']; ?>
 								</option>
 								
 
 							</select>
-
-							<input class="form-control col-sm-6" style="float: right;" type="number" step="1" name="porcentagem" id="porcentagem" class="form-control" placeholder="Quantidade maxima disponivel:<?php echo $produtovendas['quantidadeproduto'];?>" value="" min="0" max="<?php echo $produtovendas['quantidadeproduto'];?>" required>
+							<input type="hidden" name="produtoid" value="<?php echo $produtovendas['id'];?>">
+							<input class="form-control col-sm-6" style="float: right;" type="number" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade maxima disponivel:<?php echo $produtovendas['quantidadeproduto'];?>" value="" min="0" max="<?php echo $produtovendas['quantidadeproduto'];?>" required>
 						<div class="form-group">
 
 							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-plus-circle"></i>Comprar esse produto</button>

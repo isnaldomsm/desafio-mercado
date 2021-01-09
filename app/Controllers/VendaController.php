@@ -25,6 +25,20 @@ class VendaController{
 
 		
 	}
+	public function add()
+    {
+        // pega os dados do formuário
+        $produtoid 			= isset($_POST['produtoid']) ? $_POST['produtoid'] : null;
+        $quantidadeproduto	= isset($_POST['quantidadeproduto']) ? $_POST['quantidadeproduto'] : null;
+       
+        
+ 
+        if (Vendas::save($produtoid, $quantidadeproduto))
+        {
+            header('Location: /vendas');
+            exit;
+        }
+    }
 }
 
 
