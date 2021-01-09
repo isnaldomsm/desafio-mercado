@@ -115,4 +115,16 @@ $app->post('/tipoprodutoimposto/edit', function ($request)
     $tipoProdutoImpostoController = new \App\Controllers\tipoProdutoImpostoController;
     $tipoProdutoImpostoController->update();
 });
+
+//venda
+$app->get('/vendas', function ($request)
+{
+    $VendaController = new \App\Controllers\VendaController;
+    $VendaController->index();
+});
+$app->get('/vendas/cadastro', function ($request)
+{
+    $VendaController = new \App\Controllers\VendaController;
+    $VendaController->cadastro();
+});
 $app->run();

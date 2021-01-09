@@ -28,7 +28,13 @@
 							<input type="number" step="0.01" name="precoProduto" id="precoProduto" class="form-control" placeholder="Preço do Produto" value="<?php echo $produtos['precoproduto'];?>" required>
 
 						</div>
+						<div class="form-group">
+							
+							<label>Quantidade Disponivel para venda<span class="text-danger">*</span></label>
 
+							<input type="number" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade do Produto" value="<?php echo $produtos['quantidadeproduto'];?>" required>
+
+						</div>
 						<div class="form-group">
 
 							<label>Descrição do produto <span class="text-danger">*</span></label>

@@ -2,12 +2,9 @@
 namespace App\Models; 
 use App\Core\DB; 
 class produtos{
-	public static function save($nomeProduto, $precoProduto, $descricaoProduto, $tipoCategoria)
+	public static function save($nomeProduto, $precoProduto, $descricaoProduto, $tipoCategoria, $quantidadeproduto)
     {
-        echo $nomeProduto;
-        echo $precoProduto;
-        echo $descricaoProduto;
-        echo $tipoCategoria;
+       
         // validação (bem simples, só pra evitar dados vazios)
         if (empty($nomeProduto) || empty($precoProduto) || empty($descricaoProduto) || empty($tipoCategoria))
         {
@@ -17,12 +14,13 @@ class produtos{
           
         
         $DB = new DB;
-        $sql = "INSERT INTO produtos(nomeProduto, precoProduto, descricaoProduto, tipoCategoria) VALUES(:nomeProduto, :precoProduto, :descricaoProduto, :tipoCategoria)";
+        $sql = "INSERT INTO produtos(nomeProduto, precoProduto, descricaoProduto, tipoCategoria, quantidadeproduto) VALUES(:nomeProduto, :precoProduto, :descricaoProduto, :tipoCategoria, :quantidadeproduto )";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':nomeProduto', $nomeProduto);
         $stmt->bindParam(':precoProduto', $precoProduto);
         $stmt->bindParam(':descricaoProduto', $descricaoProduto);
         $stmt->bindParam(':tipoCategoria', $tipoCategoria);
+        $stmt->bindParam(':quantidadeproduto', $quantidadeproduto);
  
         if ($stmt->execute())
         {
@@ -43,7 +41,7 @@ class produtos{
             $where = 'WHERE id = :id'; 
         } 
 
-        $sql = sprintf("SELECT id, nomeproduto, precoproduto, descricaoproduto, tipocategoria FROM produtos %s ORDER BY id ASC", $where); 
+        $sql = sprintf("SELECT id, nomeproduto, precoproduto, descricaoproduto, tipocategoria, quantidadeproduto FROM produtos %s ORDER BY id ASC", $where); 
         $DB = new DB; $stmt = $DB->prepare($sql);
         // var_dump($sql);
         if (!empty($where))

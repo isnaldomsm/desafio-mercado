@@ -26,8 +26,8 @@ class ProdutosController
         $precoProduto		= isset($_POST['precoProduto']) ? $_POST['precoProduto'] : null;
         $descricaoProduto  	= isset($_POST['descricaoProduto']) ? $_POST['descricaoProduto'] : null;
         $tipoCategoria 		= isset($_POST['tipoCategoria']) ? $_POST['tipoCategoria'] : null;
- 
-        if (Produtos::save($nomeProduto, $precoProduto,  $descricaoProduto, $tipoCategoria))
+        $quantidadeProduto  = isset($_POST['quantidadeproduto']) ? $_POST['quantidadeproduto'] : null;
+        if (Produtos::save($nomeProduto, $precoProduto,  $descricaoProduto, $tipoCategoria, $quantidadeProduto))
         {
             header('Location: /produtos');
             exit;
