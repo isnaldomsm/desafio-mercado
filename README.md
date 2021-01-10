@@ -1,10 +1,11 @@
 Quando recebi este teste, fiquei muito feliz por ter a chance de trabalhar em uma grande.
 
+
 Quando estava desenvolvendo o aplicativo pensei que poderia usar frameworks completos como Laravel, 
 Yii2, CakePHP, entre outros. No entanto, no meu entendimento, o teste consiste em um processo avaliativo 
 para medir a profundidade dos meus conhecimentos e habilidades. Portanto, apresento muitas coisas que aprendi em minha carreira usando pacotes mínimos.
 
-Requisitos de sistema
+Requisitos de sistema:
 PHP 7.4
 postgresql 9.4
 
