@@ -3,7 +3,7 @@ namespace App\Models;
 use App\Core\DB; 
 
 class tipoimposto{
-	public static function save($nometipo, $porcentagem, $descricaotipo)
+    public static function save($nometipo, $porcentagem, $descricaotipo)
     {
        
         // validação (bem simples, só pra evitar dados vazios)

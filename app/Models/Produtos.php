@@ -1,18 +1,18 @@
 <?php
-namespace App\Models; 
-use App\Core\DB; 
-class produtos{
-	public static function save($nomeProduto, $precoProduto, $descricaoProduto, $produtoimposto, $quantidadeproduto )
+namespace App\Models;
+use App\Core\DB;
+class produtos
+{
+    public static function save($nomeProduto, $precoProduto, $descricaoProduto, $produtoimposto, $quantidadeproduto)
     {
-       
+
         // validação (bem simples, só pra evitar dados vazios)
         if (empty($nomeProduto) || empty($precoProduto) || empty($descricaoProduto) || empty($produtoimposto))
         {
             echo "Volte e preencha todos os campos";
             return false;
         }
-          
-        
+
         $DB = new DB;
         $sql = "INSERT INTO produtos(nomeProduto, precoProduto, descricaoProduto, tipoCategoria, quantidadeproduto) VALUES(:nomeProduto, :precoProduto, :descricaoProduto, :tipoCategoria, :quantidadeproduto)";
         $stmt = $DB->prepare($sql);
@@ -21,8 +21,7 @@ class produtos{
         $stmt->bindParam(':descricaoProduto', $descricaoProduto);
         $stmt->bindParam(':tipoCategoria', $produtoimposto);
         $stmt->bindParam(':quantidadeproduto', $quantidadeproduto);
-       
- 
+
         if ($stmt->execute())
         {
             return true;
@@ -35,15 +34,18 @@ class produtos{
         }
     }
 
-    /** * Busca produtos * * Se o ID não for passado, busca todos. Caso contrário, filtra pelo ID especificado. */ 
-    public static function selectAll($id = null) {
-        $where = ''; 
-        if (!empty($id)) { 
-            $where = 'WHERE id = :id'; 
-        } 
+    /** * Busca produtos * * Se o ID não for passado, busca todos. Caso contrário, filtra pelo ID especificado. */
+    public static function selectAll($id = null)
+    {
+        $where = '';
+        if (!empty($id))
+        {
+            $where = 'WHERE id = :id';
+        }
 
-        $sql = sprintf("SELECT id, nomeproduto, precoproduto, descricaoproduto, tipocategoria, quantidadeproduto FROM produtos %s ORDER BY id ASC", $where); 
-        $DB = new DB; $stmt = $DB->prepare($sql);
+        $sql = sprintf("SELECT id, nomeproduto, precoproduto, descricaoproduto, tipocategoria, quantidadeproduto FROM produtos %s ORDER BY id ASC", $where);
+        $DB = new DB;
+        $stmt = $DB->prepare($sql);
         // var_dump($sql);
         if (!empty($where))
         {
@@ -51,9 +53,9 @@ class produtos{
         }
 
         $stmt->execute();
- 
+
         $produtos = $stmt->fetchAll(\PDO::FETCH_ASSOC);
- 
+
         return $produtos;
 
     }
@@ -66,13 +68,13 @@ class produtos{
             echo "ID não informado";
             exit;
         }
-          
+
         // remove do banco
         $DB = new DB;
         $sql = "DELETE FROM produtos WHERE id = :id";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
-          
+
         if ($stmt->execute())
         {
             return true;
@@ -84,7 +86,7 @@ class produtos{
             return false;
         }
     }
-     public static function update($nomeProduto, $precoProduto, $descricaoProduto, $tipoCategoria)
+    public static function update($nomeProduto, $precoProduto, $descricaoProduto, $tipoCategoria)
     {
         // validação (bem simples, só pra evitar dados vazios)
         if (empty($nomeProduto) || empty($precoProduto) || empty($descricaoProduto) || empty($tipoCategoria))
@@ -92,9 +94,7 @@ class produtos{
             echo "Volte e preencha todos os campos";
             return false;
         }
-          
-        
-          
+
         // insere no banco
         $DB = new DB;
         $sql = "UPDATE produtos SET nomeproduto = :nomeProduto, precoproduto = :precoProduto, descricaoproduto = :descricaoProduto, tipocategoria = :tipoCategoria WHERE id = :id";
@@ -104,7 +104,7 @@ class produtos{
         $stmt->bindParam(':descricaoproduto', $descricaoProduto);
         $stmt->bindParam(':tipoCategoria', $tipoCategoria);
         $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
- 
+
         if ($stmt->execute())
         {
             return true;
@@ -116,11 +116,12 @@ class produtos{
             return false;
         }
     }
-    public static function selects() {
-       
+    public static function selects()
+    {
 
-        $sql = sprintf("SELECT id, nometipo, porcentagemimposto, descricaotipo FROM tipoimposto  ORDER BY id ASC"); 
-        $DB = new DB; $stmt = $DB->prepare($sql);
+        $sql = sprintf("SELECT id, nometipo, porcentagemimposto, descricaotipo FROM tipoimposto  ORDER BY id ASC");
+        $DB = new DB;
+        $stmt = $DB->prepare($sql);
         // var_dump($sql);
         if (!empty($where))
         {
@@ -128,11 +129,12 @@ class produtos{
         }
 
         $stmt->execute();
- 
+
         $selects = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        var_dump($selects);
+        
         return $selects;
 
     }
- 
+
 }
+

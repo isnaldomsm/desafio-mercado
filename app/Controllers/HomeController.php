@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controllers;
-
 use App\Core\View;
 
 /**
@@ -15,5 +13,4 @@ class HomeController
 		# code...
 		View::load('home');
 	}
-	
 }
