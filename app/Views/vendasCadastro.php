@@ -20,7 +20,7 @@
 						<div class="form-group" >
 							<select name="produtoid" disabled style="float: left;" class="form-control col-sm-6">
 								<option name="tipoCategoria" value="<?php echo $vendas['id'];?>">
-									<?php echo $vendas['nomeproduto']; ?>
+									<?php echo $vendas['nomeproduto']." - R$: ". $vendas['precoproduto'];?>
 								</option>
 								
 
@@ -30,7 +30,7 @@
 							<input type="hidden" name="nomeproduto" value="<?php echo $vendas['nomeproduto'];?>">
 							<input type="hidden" name="imposto" value="<?php echo $vendas['tipocategoria'];?>">
 
-							<input class="form-control col-sm-6" style="float: right;" type="number" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade maxima disponivel:<?php echo $vendas['quantidadeproduto'];?>" value="" min="0" max="<?php echo $vendas['quantidadeproduto'];?>" required>
+							<input class="form-control col-sm-6" type="number" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade maxima disponivel:<?php echo $vendas['quantidadeproduto'];?>" value="" min="0" max="<?php echo $vendas['quantidadeproduto'];?>" required>
 						<div class="form-group">
 
 							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-plus-circle"></i>Comprar esse produto</button>

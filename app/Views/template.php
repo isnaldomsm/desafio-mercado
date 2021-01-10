@@ -29,21 +29,22 @@
                         </a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="/produtos">
-                        <span data-feather="file"></span>
-                        Produtos
-                        </a>
-                     </li>
-                     <li class="nav-item">
                         <a class="nav-link" href="/tipoprodutoimposto">
-                        <span data-feather="shopping-cart"></span>
+                        <span data-feather="file"></span>
                         Tipo produto / Imposto
                         </a>
                      </li>
                      <li class="nav-item">
+                        <a class="nav-link" href="/produtos">
+                        <span data-feather="shopping-cart"></span>
+                        Produtos
+                        </a>
+                     </li>
+                     
+                     <li class="nav-item">
                         <a class="nav-link" href="/vendas">
                         <span data-feather="bar-chart-2"></span>
-                        Fazer Venda
+                        Vendas
                         </a>
                      </li>
                   </ul>

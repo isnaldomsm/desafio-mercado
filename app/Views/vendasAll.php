@@ -25,7 +25,7 @@
          </tr>
       </thead>
       <tbody>
-         <?php foreach ($venda as $vendas): var_dump($vendas);
+         <?php foreach ($venda as $vendas): 
             $total = $vendas["quantidadeproduto"] * $vendas["produtopreco"];
             $pctm = $vendas["imposto"];
             $valor_descontado = $total - ($total / 100 * $pctm);

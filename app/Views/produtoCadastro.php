@@ -17,7 +17,7 @@
 
 							<label>Nome do produto <span class="text-danger">*</span></label>
 
-							<input type="text" required="true" name="produtoNome" id="produtoNome" class="form-control" placeholder="Nome do Produto" value="<?php echo $produtos['nomeproduto'];?>" required>
+							<input type="text" required="true" name="produtoNome" id="produtoNome" class="form-control" placeholder="Nome do Produto" value="<?php echo $produtos[0]['nomeproduto'];?>" required>
 
 						</div>
 
@@ -25,20 +25,20 @@
 
 							<label>Preço do produto <span class="text-danger">*</span></label>
 
-							<input type="number"  required="true" step="0.01" name="precoProduto" id="precoProduto" class="form-control" placeholder="Preço do Produto" value="<?php echo $produtos['precoproduto'];?>" required>
+							<input type="number"  required="true" step="0.01" name="precoProduto" id="precoProduto" class="form-control" placeholder="Preço do Produto" value="<?php echo $produtos[0]['precoproduto'];?>" required>
 
 						</div>
 						<div class="form-group">
 							
 							<label>Quantidade Disponivel para venda<span class="text-danger">*</span></label>
 
-							<input type="number" required="true" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade do Produto" value="<?php echo $produtos['quantidadeproduto'];?>" required>
+							<input type="number" required="true" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade do Produto" value="<?php echo $produtos[0]['quantidadeproduto'];?>" required>
 
 						</div>
 						<div class="form-group">
 
 							<label>Descrição do produto <span class="text-danger">*</span></label>
-							<textarea name="descricaoProduto" required="true" value="" class="form-control" required="true"><?php echo $produtos['descricaoproduto']; ?></textarea>
+							<textarea name="descricaoProduto" required="true" value="" class="form-control" required="true"><?php echo $produtos[0]['descricaoproduto']; ?></textarea>
 
 						</div>
 						<div class="form-group">

@@ -58,12 +58,13 @@ $app->get('/produto/edit/{id}', function ($request)
     $ProdutosController = new \App\Controllers\ProdutosController;
     $ProdutosController->edit($id);
 });
-//update produto
-$app->post('produto/edit', function ()
-{
-    $UsersController = new \App\Controllers\UsersController;
-    $UsersController->update();
-});
+
+// //update produto
+// $app->post('produto/edit', function ()
+// {
+//     $UsersController = new \App\Controllers\UsersController;
+//     $UsersController->update();
+// });
 
 
 //
