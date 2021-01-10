@@ -12,9 +12,9 @@ class VendaController{
 	public function index()
 	{
 		# code...
-        $vendasall = Vendas::selectAll(); 
+        $vendas = Vendas::selectAll(); 
         View::load('vendasAll', [ 
-            'vendas' => $vendasall,
+            'venda' => $vendas,
         ]);
 		
 	}
@@ -29,15 +29,27 @@ class VendaController{
 
 		
 	}
+    public function realizarvenda()
+    {
+        $vendas = Vendas::selectCompra($id);
+ 
+        View::load('vendasCadastro',[
+            'venda' => $vendas,
+        ]);
+
+        
+    }
 	public function add()
     {
         // pega os dados do formuário
         $produtoid 			= isset($_POST['produtoid']) ? $_POST['produtoid'] : null;
         $quantidadeproduto	= isset($_POST['quantidadeproduto']) ? $_POST['quantidadeproduto'] : null;
+        $nomeproduto        = isset($_POST['nomeproduto']) ? $_POST['nomeproduto'] : null;
+        $produtopreco        = isset($_POST['produtopreco']) ? $_POST['produtopreco'] : null;
        
         
  
-        if (Vendas::save($produtoid, $quantidadeproduto))
+        if (Vendas::save($produtoid, $quantidadeproduto, $nomeproduto, $produtopreco ))
         {
             header('Location: /vendas');
             exit;

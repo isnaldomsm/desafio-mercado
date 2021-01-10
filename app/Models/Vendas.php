@@ -7,40 +7,37 @@ class Vendas{
     public static function selectAll($id = null) {
        
 
-        $sql = sprintf("SELECT id, produtoid, quantidadeproduto  FROM vendas  ORDER BY id ASC"); 
+        $sql = sprintf("SELECT id, produtoid, quantidadeproduto, nomeproduto, produtopreco  FROM vendas  ORDER BY id ASC"); 
         $DB = new DB; $stmt = $DB->prepare($sql);
-        // var_dump($sql);
-        if (!empty($where))
-        {
-            $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
-        }
+        
+        $stmt->execute();
+ 
+        $vendas = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        
+        return $vendas;
+
+    }
+
+    public static function selectCompra($id = null) {
+       
+
+        $sql = sprintf("SELECT id, nomeproduto, precoproduto, descricaoproduto, quantidadeproduto  FROM produtos  ORDER BY id ASC"); 
+        $DB = new DB; $stmt = $DB->prepare($sql);
+      
+        
+       
 
         $stmt->execute();
  
         $vendas = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        //var_dump($vendas);
-        $i=1;
-        foreach ($vendas as $venda) {
-                
-        $sqlvendas = "SELECT id, nomeproduto  FROM produtos where id =". $venda['id'];      
-        $DB = new DB; $stmt = $DB->prepare($sqlvendas);
-        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
-        $stmt->execute();
-        $vendaslistar = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        foreach ($vendaslistar as  $vendaslista) {
-           $array = array(
-                    “chave1” => $venda['quantidadeproduto'],
-                    “chave2” => $vendaslista['nomeproduto']);
         
-        }
-        }
-      
-        return $array;
+        return $vendas;
+
 
     }
 
 
-    public static function save($produtoid, $quantidadeproduto)
+    public static function save($produtoid, $quantidadeproduto, $nomeproduto, $produtopreco)
     {
        
         // validação (bem simples, só pra evitar dados vazios)
@@ -52,11 +49,12 @@ class Vendas{
           
         
         $DB = new DB;
-        $sql = "INSERT INTO vendas(produtoid, quantidadeproduto) VALUES(:produtoid, :quantidadeproduto)";
-        var_dump($sql);
+        $sql = "INSERT INTO vendas(produtoid, quantidadeproduto, nomeproduto, produtopreco) VALUES(:produtoid, :quantidadeproduto, :nomeproduto, :produtopreco)";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':produtoid', $produtoid);
         $stmt->bindParam(':quantidadeproduto', $quantidadeproduto);
+        $stmt->bindParam(':nomeproduto', $nomeproduto);
+        $stmt->bindParam(':produtopreco', $produtopreco);
         
         if ($stmt->execute())
         {

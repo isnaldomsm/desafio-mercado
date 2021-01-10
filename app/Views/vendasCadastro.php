@@ -1,7 +1,7 @@
 	<div class="container">
 		<div class="card">
 
-			<div class="card-header"><i class="fa fa-fw fa-plus-circle"></i> <strong>CADASTRO PRODUTOS</strong> <a href="/produtos" class="float-right btn btn-dark btn-sm"><i class="fa fa-fw fa-globe"></i>Listar Produtos</a></div>
+			<div class="card-header"><i class="fa fa-fw fa-plus-circle"></i> <strong>Realizar vendas</strong> <a href="/vendas" class="float-right btn btn-dark btn-sm"><i class="fa fa-fw fa-globe"></i>Listar vendas</a></div>
 
 			<div class="card-body">
 				<div class="col-sm-12">
@@ -11,20 +11,25 @@
 					
 
 						<?php  
-							foreach ($produtovenda as $produtovendas): 
-								if($produtovendas['quantidadeproduto']>0):
+							
+							foreach ($venda as $vendas): 
+								
+								if($vendas['quantidadeproduto']>0):
 						?>
 						<form method="post" action="/vendas/add">
-						<div class="form-group" style="margin-top: 5px;!important">
+						<div class="form-group" >
 							<select name="produtoid" disabled style="float: left;" class="form-control col-sm-6">
-								<option name="tipoCategoria" value="<?php echo $produtovendas['id'];?>">
-									<?php echo $produtovendas['nomeproduto']; ?>
+								<option name="tipoCategoria" value="<?php echo $vendas['id'];?>">
+									<?php echo $vendas['nomeproduto']; ?>
 								</option>
 								
 
 							</select>
-							<input type="hidden" name="produtoid" value="<?php echo $produtovendas['id'];?>">
-							<input class="form-control col-sm-6" style="float: right;" type="number" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade maxima disponivel:<?php echo $produtovendas['quantidadeproduto'];?>" value="" min="0" max="<?php echo $produtovendas['quantidadeproduto'];?>" required>
+							<input type="hidden" name="produtoid" value="<?php echo $vendas['id'];?>">
+							<input type="hidden" name="produtopreco" value="<?php echo $vendas['precoproduto'];?>">
+							<input type="hidden" name="nomeproduto" value="<?php echo $vendas['nomeproduto'];?>">
+
+							<input class="form-control col-sm-6" style="float: right;" type="number" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade maxima disponivel:<?php echo $vendas['quantidadeproduto'];?>" value="" min="0" max="<?php echo $vendas['quantidadeproduto'];?>" required>
 						<div class="form-group">
 
 							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-plus-circle"></i>Comprar esse produto</button>
@@ -32,13 +37,14 @@
 						</div>
 						
 						</div>
+						</form>
 						<?php 
 							endif;
 							endforeach;
 						?>
 						
 
-					</form>
+					
 
 				</div>
 

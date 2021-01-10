@@ -125,7 +125,7 @@ $app->get('/vendas', function ($request)
 $app->get('/vendas/cadastro', function ($request)
 {
     $VendaController = new \App\Controllers\VendaController;
-    $VendaController->cadastro();
+    $VendaController->realizarvenda();
 });
 $app->post('/vendas/add', function ($request)
 {
