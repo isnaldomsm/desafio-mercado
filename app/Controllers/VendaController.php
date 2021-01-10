@@ -45,11 +45,11 @@ class VendaController{
         $produtoid 			= isset($_POST['produtoid']) ? $_POST['produtoid'] : null;
         $quantidadeproduto	= isset($_POST['quantidadeproduto']) ? $_POST['quantidadeproduto'] : null;
         $nomeproduto        = isset($_POST['nomeproduto']) ? $_POST['nomeproduto'] : null;
-        $produtopreco        = isset($_POST['produtopreco']) ? $_POST['produtopreco'] : null;
-       
+        $produtopreco       = isset($_POST['produtopreco']) ? $_POST['produtopreco'] : null;
+        $imposto            = isset($_POST['imposto']) ? $_POST['imposto'] : null;
         
  
-        if (Vendas::save($produtoid, $quantidadeproduto, $nomeproduto, $produtopreco ))
+        if (Vendas::save($produtoid, $quantidadeproduto, $nomeproduto, $produtopreco, $imposto  ))
         {
             header('Location: /vendas');
             exit;

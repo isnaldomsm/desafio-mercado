@@ -2,11 +2,11 @@
 namespace App\Models; 
 use App\Core\DB; 
 class produtos{
-	public static function save($nomeProduto, $precoProduto, $descricaoProduto, $tipoCategoria, $quantidadeproduto)
+	public static function save($nomeProduto, $precoProduto, $descricaoProduto, $produtoimposto, $quantidadeproduto )
     {
        
         // validação (bem simples, só pra evitar dados vazios)
-        if (empty($nomeProduto) || empty($precoProduto) || empty($descricaoProduto) || empty($tipoCategoria))
+        if (empty($nomeProduto) || empty($precoProduto) || empty($descricaoProduto) || empty($produtoimposto))
         {
             echo "Volte e preencha todos os campos";
             return false;
@@ -14,13 +14,14 @@ class produtos{
           
         
         $DB = new DB;
-        $sql = "INSERT INTO produtos(nomeProduto, precoProduto, descricaoProduto, tipoCategoria, quantidadeproduto) VALUES(:nomeProduto, :precoProduto, :descricaoProduto, :tipoCategoria, :quantidadeproduto )";
+        $sql = "INSERT INTO produtos(nomeProduto, precoProduto, descricaoProduto, tipoCategoria, quantidadeproduto) VALUES(:nomeProduto, :precoProduto, :descricaoProduto, :tipoCategoria, :quantidadeproduto)";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':nomeProduto', $nomeProduto);
         $stmt->bindParam(':precoProduto', $precoProduto);
         $stmt->bindParam(':descricaoProduto', $descricaoProduto);
-        $stmt->bindParam(':tipoCategoria', $tipoCategoria);
+        $stmt->bindParam(':tipoCategoria', $produtoimposto);
         $stmt->bindParam(':quantidadeproduto', $quantidadeproduto);
+       
  
         if ($stmt->execute())
         {
@@ -114,6 +115,24 @@ class produtos{
             print_r($stmt->errorInfo());
             return false;
         }
+    }
+    public static function selects() {
+       
+
+        $sql = sprintf("SELECT id, nometipo, porcentagemimposto, descricaotipo FROM tipoimposto  ORDER BY id ASC"); 
+        $DB = new DB; $stmt = $DB->prepare($sql);
+        // var_dump($sql);
+        if (!empty($where))
+        {
+            $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+ 
+        $selects = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        var_dump($selects);
+        return $selects;
+
     }
  
 }

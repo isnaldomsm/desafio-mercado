@@ -12,7 +12,7 @@
 
 						<?php  
 							
-							foreach ($venda as $vendas): 
+							foreach ($venda as $vendas):
 								
 								if($vendas['quantidadeproduto']>0):
 						?>
@@ -28,6 +28,7 @@
 							<input type="hidden" name="produtoid" value="<?php echo $vendas['id'];?>">
 							<input type="hidden" name="produtopreco" value="<?php echo $vendas['precoproduto'];?>">
 							<input type="hidden" name="nomeproduto" value="<?php echo $vendas['nomeproduto'];?>">
+							<input type="hidden" name="imposto" value="<?php echo $vendas['tipocategoria'];?>">
 
 							<input class="form-control col-sm-6" style="float: right;" type="number" step="1" name="quantidadeproduto" id="quantidadeproduto" class="form-control" placeholder="Quantidade maxima disponivel:<?php echo $vendas['quantidadeproduto'];?>" value="" min="0" max="<?php echo $vendas['quantidadeproduto'];?>" required>
 						<div class="form-group">

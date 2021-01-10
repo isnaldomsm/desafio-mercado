@@ -19,7 +19,7 @@
                   <th>Nome Produto</th>
                   <th>Preço</th>
                   <th>Descricão</th>
-                  <th class="text-center">Categoria</th>
+                  <th class="text-center">Imposto %</th>
                   <th class="text-center" scope="col">Ações</th>
                   
                </tr>

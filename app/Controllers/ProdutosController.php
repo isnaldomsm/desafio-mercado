@@ -13,7 +13,10 @@ class ProdutosController
 {
 	public function create()
 	{
-		View::load('produtoCadastro');
+        $selects = Produtos::selects($id);
+		View::load('produtoCadastro', [ 
+            'select' =>  $selects,
+        ]);
 	}
 
 	 /**
@@ -27,7 +30,10 @@ class ProdutosController
         $descricaoProduto  	= isset($_POST['descricaoProduto']) ? $_POST['descricaoProduto'] : null;
         $tipoCategoria 		= isset($_POST['tipoCategoria']) ? $_POST['tipoCategoria'] : null;
         $quantidadeProduto  = isset($_POST['quantidadeproduto']) ? $_POST['quantidadeproduto'] : null;
-        if (Produtos::save($nomeProduto, $precoProduto,  $descricaoProduto, $tipoCategoria, $quantidadeProduto))
+        $produtoimposto     = isset($_POST['produtoimposto']) ? $_POST['produtoimposto'] : null;
+
+
+        if (Produtos::save($nomeProduto, $precoProduto,  $descricaoProduto, $produtoimposto, $quantidadeProduto,   ))
         {
             header('Location: /produtos');
             exit;
@@ -76,7 +82,7 @@ class ProdutosController
     //editar produto
     public function edit($id)
     {
-        $produtos = Produtos::selectAll($id)[0];
+        $produtos = Produtos::selectAll($id);
  
         View::load('produtoCadastro',[
             'produtos' => $produtos,
