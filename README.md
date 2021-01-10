@@ -20,7 +20,7 @@ Para rodar localmente o aplicativo você deve ter o composer instalado: https://
 <br>
 Após a instalacao do composer: <br>
 $ composer install<br>
-$ composer dump-autoload<br>
+
 <br>
 Após:<br>
 No repositorio tem um arquivo com criacao da tabelas no banco de dados.<br>
